@@ -1,0 +1,39 @@
+<crudForm [title]="title()" (onSave)="save()" *ngIf="isLoaded" >
+    <div class="row">
+        <div class="tabbable">
+            <ul class="nav nav-pills nav-stacked col-md-3">
+                <li class="active"><a href="#General" data-toggle="tab">General</a></li>
+                <li><a href="#Other" data-toggle="tab">Other</a></li>
+
+            </ul>
+            <div class="tab-content col-md-9">
+                <div class="tab-pane active" id="General">
+
+                    <form-input [entity]="entity.Contract" title="Company">
+                        <select [(ngModel)]="entity.Contract.AccountingEntityID" class="form-control" >
+                            <option *ngFor="#item of accountingEntities" value="{{item.ID}}" >{{item.Party.Name}}</option>
+                        </select>
+                    </form-input>
+
+                    <form-input [entity]="entity" name="EmployeeNumber" title="Employee Number">
+                        <input type="text" class="form-control" name="EmployeeNumber" [(ngModel)]="entity.Employee.EmployeeNumber">
+                    </form-input>
+
+                    <form-input [entity]="entity" name="EmployeeNumber" title="First Name">
+                        <input type="text" class="form-control" [(ngModel)]="entity.Contract.Party.FirstName">
+                    </form-input>
+
+                    <form-input [entity]="entity" name="EmployeeNumber" title="Surname">
+                        <input type="text" class="form-control" [(ngModel)]="entity.Contract.Party.Surname">
+                    </form-input>
+
+                </div>
+
+                <div class="tab-pane" id="Other">
+                    <scheduledJournalSubView [value]="entity.Contract" [dataService]="dataService" ></scheduledJournalSubView>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</crudForm>

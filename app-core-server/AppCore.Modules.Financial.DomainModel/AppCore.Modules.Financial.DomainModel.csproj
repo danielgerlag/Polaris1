@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6533D95D-A764-451A-AEFC-48A9F363A9A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppCore.Modules.Financial.DomainModel</RootNamespace>
+    <AssemblyName>AppCore.Modules.Financial.DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\IFinancialContext.cs" />
+    <Compile Include="Entities\BaseLedgerAccount.cs" />
+    <Compile Include="Entities\BaseJournalTemplateTxnPosting.cs" />
+    <Compile Include="Entities\BaseLedgerTxn.cs" />
+    <Compile Include="Entities\BaseScheduledJournalInputValue.cs" />
+    <Compile Include="Entities\BaseJournalTxn.cs" />
+    <Compile Include="Entities\BaseJournal.cs" />
+    <Compile Include="Entities\BaseJournalTemplateTxn.cs" />
+    <Compile Include="Entities\BaseJournalTemplate.cs" />
+    <Compile Include="Entities\BaseContract.cs" />
+    <Compile Include="Entities\BaseAccountingEntity.cs" />
+    <Compile Include="Entities\BaseScheduledJournal.cs" />
+    <Compile Include="Entities\BaseJournalTemplateInput.cs" />
+    <Compile Include="Entities\IPartyRole.cs" />
+    <Compile Include="Entities\JournalTxnType.cs" />
+    <Compile Include="Entities\ScheduledJournalException.cs" />
+    <Compile Include="Entities\ScheduledJournalLog.cs" />
+    <Compile Include="Entities\Region.cs" />
+    <Compile Include="Entities\Ledger.cs" />
+    <Compile Include="Entities\JournalType.cs" />
+    <Compile Include="Entities\LedgerAccountType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseJournalPoster.cs" />
+    <Compile Include="Services\BaseLedgerQueryService.cs" />
+    <Compile Include="Services\Interfaces\IJournalBuilder.cs" />
+    <Compile Include="Services\Interfaces\IScheduledJournalRunner.cs" />
+    <Compile Include="Services\Interfaces\IJournalPoster.cs" />
+    <Compile Include="Services\Interfaces\ITransactionPollManager.cs" />
+    <Compile Include="Services\BaseJournalBuilder.cs" />
+    <Compile Include="Services\BaseScheduledJournalRunner.cs" />
+    <Compile Include="Services\Models\JournalPostResult.cs" />
+    <Compile Include="Services\Models\JournalRunResult.cs" />
+    <Compile Include="DistributedServices\BaseScheduledJournalWorker.cs" />
+    <Compile Include="Services\Models\LedgerAccountBalanceRequest.cs" />
+    <Compile Include="Services\Models\LedgerAccountBalance.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppCore.DistributedServices\AppCore.DistributedServices.csproj">
+      <Project>{f3495667-3c7b-49c6-948b-033aade2ea53}</Project>
+      <Name>AppCore.DistributedServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCore.DomainModel.Abstractions\AppCore.DomainModel.Abstractions.csproj">
+      <Project>{5a6d02b8-cc82-4ab7-858c-4004175d773b}</Project>
+      <Name>AppCore.DomainModel.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCore.DomainModel.Interface\AppCore.DomainModel.Interface.csproj">
+      <Project>{0a9a6601-7196-41e9-a13c-06cb21e6f314}</Project>
+      <Name>AppCore.DomainModel.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCore.IoC\AppCore.IoC.csproj">
+      <Project>{7b3d6e32-a377-4b97-8d95-8a474089252f}</Project>
+      <Name>AppCore.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCore.Modules.Foundation.DomainModel\AppCore.Modules.Foundation.DomainModel.csproj">
+      <Project>{52f4ed47-23a3-46e1-b1b3-dcd6381a37dc}</Project>
+      <Name>AppCore.Modules.Foundation.DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,63 @@
+<div class="container-fluid">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HR One</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li *ngIf="userInfo.isLoggedIn"><a href="#">Search</a></li>
+                    <li *ngIf="!userInfo.isLoggedIn"><a href="#/Register">Register</a></li>
+                    <li *ngIf="!userInfo.isLoggedIn"><a href="#/Login">Sign In</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/PartyWizard">Party</a></li>
+                            <li><a href="#/Employments">Employment Contracts</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setup<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/AccountingEntities">Companies</a></li>
+                        </ul>
+                    </li>
+
+                    <li *ngIf="userInfo.isLoggedIn"><a (click)="signOut()" >Sign Out</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="container" *ngIf="ds.isReady">
+
+    <router-outlet [hidden]="shellService.info.isLoading" style="padding-top:4em" class="workspace body-content"></router-outlet>
+
+    <div [hidden]="!shellService.info.isLoading">
+
+        <div class="progress" [hidden]="!shellService.info.isLoading">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%">
+                {{ shellService.info.loadingMessage }}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="progress" *ngIf="!(ds.isReady)">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%">
+        Booting...
+    </div>
+</div>

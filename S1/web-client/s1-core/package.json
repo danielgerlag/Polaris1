@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0-beta.1",
+  "name": "s1-core",
+  "private": true,
+  "dependencies": {
+    "angular2": "2.0.0-beta.14",
+    "es6-promise": "3.1.2",
+    "es6-shim": "0.35.0",
+	"rxjs": "5.0.0-beta.2",
+	"systemjs": "0.19.24",
+	"zone.js": "0.6.6",
+	
+    "breeze-client": "^1.5.5",
+    "datajs": "^1.0.3",
+    
+    "filesaver.js": "^0.2.0",
+    "jquery": "^2.2.1",
+    "moment": "^2.12.0",
+    "reflect-metadata": "0.1.2",
+    
+    "typescript": "^1.8.9",
+    "underscore": "^1.8.3"
+  }
+}

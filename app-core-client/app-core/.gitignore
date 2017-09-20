@@ -1,0 +1,7 @@
+/node_modules
+/build
+/.idea
+*.js
+*.js.map
+*.d.ts
+/.vscode

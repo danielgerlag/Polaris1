@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0-beta.1",
+  "name": "hr1-client-web",
+  "private": true,
+  "dependencies": {
+    "angular2": "2.0.0-beta.13",
+    "angular2-modal": "0.1.1",
+    "bootstrap": "^3.3.6",
+    "breeze-client": "^1.5.5",
+    "datajs": "^1.0.3",
+    "es6-promise": "3.1.2",
+    "es6-shim": "0.35.0",
+    "filesaver.js": "^0.2.0",
+    "font-awesome": "^4.5.0",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^2.12.1",
+    "jquery": "^2.2.1",
+    "moment": "^2.12.0",
+    "ng2-bootstrap": "1.0.10",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.24",
+    "tether": "^1.2.0",
+    "toastr": "^2.1.2",
+    "typescript": "^1.8.9",
+    "underscore": "^1.8.3",
+    "zone.js": "0.6.6"
+  }
+}

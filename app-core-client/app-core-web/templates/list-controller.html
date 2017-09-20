@@ -1,0 +1,73 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                {{title}}
+            </a>
+        </div>
+        <form class="navbar-form navbar-right">
+            <button type="button" class="btn btn-default" (click)="addItem()" [disabled]="!canAdd()">
+                Add
+            </button>
+            <button type="button" class="btn btn-primary" (click)="openItem()" [disabled]="!canOpen()">
+                Edit
+            </button>
+            <button type="button" class="btn btn-danger" (click)="deleteItem()" [disabled]="!canDelete()">
+                Delete
+            </button>
+        </form>
+    </div>
+</nav>
+
+<div dataGrid
+     [dataSource]="dataSource"
+     [(selectedItem)]="selectedItem"
+     [columns]="columns"
+     height="300">
+</div>
+
+
+<!--
+import {NgClass, FORM_BINDINGS, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {Router} from 'angular2/router';
+import {Component} from 'angular2/core';
+import {IDataService, IAuthService, IShellService} from 'app-core/app-core';
+import {DataGrid, WebListController} from 'app-core-web/app-core-web';
+
+@Component({
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass, DataGrid],
+    templateUrl: './templates/list-controller.html'
+})
+export class BranchListWeb extends WebListController {
+
+    constructor(shellService: IShellService, dataService: IDataService, router: Router) {
+        super(shellService, dataService, router);
+        this.title = "Branches";
+    }
+
+    protected getQuery() {
+        return "BrokerageBranches?$expand=Brokerage";
+    }
+
+    protected getSchemaModel() {
+        return {
+            fields: {
+                'Name': { type: "string" },
+                'Brokerage.Name': { type: "string" }
+            }
+        };
+    }
+
+    protected itemRoute(): string {
+        return "Branch";
+    }
+
+    protected getColumns(): any {
+        return [
+            { title: 'Name', field: 'Name' },
+            { title: 'Brokerage', field: 'Brokerage.Name' }
+        ];
+    }
+
+}
+-->
